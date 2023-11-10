@@ -1,0 +1,768 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<style>
+/* Add a custom CSS class to match the height of the other form elements */
+.custom-form-control {
+height: 38px; /* Adjust the height as needed */
+}
+ .custom-form-control {
+        height: 38px;
+      }
+
+      .root {
+        height: auto;
+        padding: 20px;
+      }
+
+      .title {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+
+      .boxWrapper {
+        display: grid;
+        justify-content: space-between;
+        gap: 50px;
+        grid-template-columns: 1fr 1fr 250px 1fr;
+      }
+
+      .box {
+        border: 1px solid #d1d1d1;
+        height: 30px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 0 6px;
+      }
+
+      .subTitle {
+        margin: 0;
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 1px;
+        display: inline;
+      }
+
+      .languageSelect {
+        width: 100%;
+      }
+      .languageSelect select {
+        width: 100% !important;
+      }
+
+      .divider {
+        height: 0.7px;
+        width: 99%;
+        background-color: #565656;
+        margin: 15px auto;
+      }
+      .veritcle-divider {
+        height: auto;
+        width: 0.7px;
+        background-color: #565656;
+        margin: 0 5px;
+      }
+
+      .headWrapper {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+      }
+      .headWrapper span {
+        margin-top: 5px;
+        width: 20px;
+      }
+
+      .accordion {
+        cursor: pointer;
+      }
+      .setupTitle {
+        display: inline-block;
+        font-size: 1rem;
+        font-weight: 600;
+        margin-top: 0.9rem;
+      }
+
+      .accordionContent {
+        transition: 0.2s;
+        transition-timing-function: ease-in-out;
+        padding-top: 20px;
+      }
+
+      .accordionContent.show {
+        transition: 0.5s;
+        transition-timing-function: ease-in-out;
+      }
+
+      .contentWrapper {
+        display: inline-block;
+        margin-right: 92px;
+      }
+
+      .setupTableTitle {
+        display: flex;
+        gap: 100px;
+      }
+
+      .setupContentDiv {
+        display: flex;
+        column-gap: 65px;
+      }
+
+      .setupSubTitle {
+        font-size: 0.9rem;
+        font-weight: 600;
+        display: inline-block;
+      }
+      .status-title{
+        margin-left: 145px;
+      }
+
+      .firstTitle {
+        margin-left: 40px;
+      }
+      .secondTitle {
+        margin-left: 45px;
+      }
+      .thirdTitle {
+        margin-left: 150px;
+      }
+
+      .OptionWrapper {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        height: auto;
+        gap: 10px;
+      }
+      .inlineBox {
+        border: 1px solid #d1d1d1;
+        padding: 0px 6px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+      }
+
+      .sms {
+        width: 100px;
+      }
+
+      .setupFields,
+      .inviteInputFields {
+        display: flex;
+        gap: 10px;
+      }
+
+      .inviteInputFields {
+        margin-bottom: 15px;
+      }
+
+      .selectTitle {
+        width: 270px;
+        height: 30px;
+        padding: 0 6px;
+        border: 1px solid #d1d1d1;
+        font-size: 0.9rem;
+        font-weight: 400;
+        background: transparent;
+      }
+
+      .status {
+        width: 70px;
+      }
+
+      .invite {
+        background-color: #f8e6d2;
+        width: 70px;
+        text-align: center !important;
+        cursor: pointer;
+      }
+      .invite h3 {
+        margin: auto;
+      }
+
+      .lastDate {
+        display: flex; 
+        column-gap: 20px;
+        width: 380px;
+        margin-left: 100px;
+      }
+      .lastDate-Section{
+        width: 250px;
+      }
+      .saveBtn {
+        display: inline;
+      }
+      button {
+        background-color: #69a84f;
+        border: none;
+        color: white;
+        padding: 7px 12px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 0.8rem;
+        font-weight: 600;
+        margin-left: 40px;
+        cursor: pointer;
+      }
+
+      .sendSms {
+        display: flex;
+        gap: 37px;
+        flex-wrap: wrap;
+      }
+
+      .selectOption {
+        margin-bottom: 15px;
+      }
+      .option-wrapper-message {
+        width: 300px;
+      }
+      .option-wrapper-message .selectOption select {
+        width: 100%;
+      }
+
+      .selectOption select {
+        width: 180px;
+        height: 35px;
+        padding: 0 6px;
+        border: 1px solid #d1d1d1;
+        font-size: 0.9rem;
+        font-weight: 400;
+        background: transparent;
+      }
+
+      .selectOption select option {
+        background-color: #fff;
+      }
+
+      .customMessage {
+        font-size: 1rem;
+        font-weight: 400;
+        border: 1px solid #d1d1d1;
+        padding: 6px 6px;
+        background: transparent;
+      }
+
+      .optionWrapperBox {
+        border: 1px solid #565656;
+        padding: 15px 15px 15px 5px;
+        border-radius: 20px;
+      }
+
+      .optionWrapperBox .OptionWrapper .inlineBox {
+        width: 85%;
+      }
+
+      .submitCol {
+        display: flex;
+        align-items: flex-end;
+        margin-top: 10px;
+      }
+
+      #sendButton {
+        display: none;
+      }
+      .thirdTitlee {
+        display: none;
+      }
+
+      @media (max-width: 1250px) {
+        .lastDate {
+          margin-left: 100px;
+          
+        }
+      }
+
+      @media (max-width: 880px) {
+        .veritcle-divider {
+          display: none;
+        }
+        .contentWrapper {
+          margin-right: 0px !important;
+        }
+        .setupTableTitle {
+          justify-content: space-around;
+          gap: 30px;
+        }
+        .thirdTitle {
+          display: none;
+        }
+        .thirdTitlee {
+          display: none;
+        }
+        .lastDate-Section{
+        width: 100%;
+        }
+        .setupContentDiv {
+          flex-direction: column;
+        }
+        .setupFields {
+          flex-direction: column;
+          width: 100%;
+        }
+
+        .boxWrapper {
+          grid-template-columns: 1fr;
+          gap: 10px !important;
+        }
+        .languageSelect {
+          margin-bottom: 0px;
+        }
+        .option-wrapper-message {
+          width: 100%;
+        }
+        .firstTitle {
+          display: none;
+        }
+
+        .col {
+          width: 100%;
+        }
+        .selectOption select {
+          width: 100%;
+        }
+        .secondTitle {
+          display: none;
+        }
+        button {
+          margin-left: 0;
+        }
+        .sms {
+          width: 100%;
+        }
+        .customMessage {
+          width: 100%;
+        }
+        .thirdTitlee {
+          display: block;
+          margin-left: 0;
+        }
+        .status {
+          width: 100%;
+        }
+
+        .invite {
+          width: 100%;
+        }
+        .lastDate {
+          width: 100%;
+        }
+        .selectTitle {
+          width: 100%;
+        }
+        .inputRadio {
+          width: 96%;
+        }
+
+        .sendSms {
+          display: unset;
+        }
+       .lastDate {
+          margin-left: 0px;
+          margin-bottom: 10px;
+        }
+      }
+</style>
+</head>
+<body>
+<!-- Modal Button (Centered) -->
+<div class="modal-button-container text-center mt-4">
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#smsModal">
+Launch MAXSMS
+</button>
+</div>
+
+<!-- Here is the Modal Structure -->
+<div class="modal fade" id="smsModal" tabindex="-1" aria-labelledby="smsModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-fullscreen"> <!-- Add modal-fullscreen class to expand to full screen -->
+<div class="modal-content">
+<div class="modal-header">
+<h5 class="modal-title" id="smsModalLabel">Send SMS</h5>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+ <div class="root">
+      <!-- First Section -->
+      <div class="customerInfo">
+        <h3 class="title">Customer Information</h3>
+        <div class="boxWrapper">
+          <div class="box">
+            <h3 class="subTitle">Name:</h3>
+          </div>
+          <div class="box">
+            <h3 class="subTitle">Order ID:</h3>
+          </div>
+          <div class="selectOption languageSelect">
+            <select name="language" id="languageSelect">
+              <option value="language">Language</option>
+              <option value="0">Spanish</option>
+              <option value="0">English</option>
+            </select>
+          </div>
+          <div class="box">
+            <h3 class="subTitle"></h3>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <!-- Second Section (Accordion) -->
+      <div class="setup">
+        <div class="headWrapper">
+          <span class="accordion" id="accordionButton">+</span>
+          <h3 class="setupTitle">SETUP</h3>
+        </div>
+        <div class="accordionContent" id="accordionContent">
+          <div class="contentWrapper">
+            <div class="setupTableTitle">
+              <h3 class="setupSubTitle">Preferred Communication</h3>
+              <h3 class="setupSubTitle status-title">Status</h3>
+              <h3 class="setupSubTitle thirdTitle">Last Invite Date</h3>
+            </div>
+
+            <div class="setupContentDiv">
+              <div>
+                <!-- Radio 1 -->
+                <div class="OptionWrapper">
+                  <div class="setupFields" id="smsContent">
+                    <div class="inviteInputFields">
+                      <input type="radio" id="smsRadio" name="detail-communication" />
+
+                      <div class="inlineBox sms">
+                        <h3 class="subTitle" htmlFor="sms">SMS:</h3>
+                      </div>
+
+                      <div class="inputRadio">
+                        <input type="text" value="" placeholder="Number" class="selectTitle" />
+                      </div>
+
+                      <div class="inlineBox status">
+                        <h3 class="subTitle"></h3>
+                      </div>
+                    </div>
+
+                    <div class="veritcle-divider"></div>
+
+                    <div class="lastDate">
+                      <div class="inlineBox invite">
+                        <h3 class="subTitle">Invite</h3>
+                      </div>
+                      <div class="inlineBox lastDate-Section">
+                        <h3 class="subTitle">Last Date/Time Invite Sent</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Radio 2 -->
+                <div class="OptionWrapper">
+                  <div class="setupFields" id="emailContent">
+                    <div class="inviteInputFields">
+                      <input type="radio" id="emailRadio" name="detail-communication" />
+
+                      <div class="inlineBox sms">
+                        <h3 class="subTitle" htmlFor="sms">Email:</h3>
+                      </div>
+
+                      <div class="inputRadio">
+                        <input type="text" value="" placeholder="Email" class="selectTitle" />
+                      </div>
+
+                      <div class="inlineBox status">
+                        <h3 class="subTitle"></h3>
+                      </div>
+                    </div>
+
+                    <div class="veritcle-divider"></div>
+
+                    <div class="lastDate">
+                      <div class="inlineBox invite">
+                        <h3 class="subTitle">Invite</h3>
+                      </div>
+                      <div class="inlineBox lastDate-Section">
+                        <h3 class="subTitle">Last Date/Time Invite Sent</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Radio 3 -->
+                <div class="OptionWrapper">
+                  <div class="setupFields" id="whatsappContent">
+                    <div class="inviteInputFields">
+                      <input type="radio" id="whatsappRadio" name="detail-communication" />
+
+                      <div class="inlineBox sms">
+                        <h3 class="subTitle" htmlFor="sms">Whatsapp:</h3>
+                      </div>
+
+                      <div class="inputRadio">
+                        <input type="text" value="" placeholder="Number" class="selectTitle" />
+                      </div>
+
+                      <div class="inlineBox status">
+                        <h3 class="subTitle"></h3>
+                      </div>
+                    </div>
+
+                    <div class="veritcle-divider"></div>
+
+                    <div class="lastDate">
+                      <div class="inlineBox invite">
+                        <h3 class="subTitle">Invite</h3>
+                      </div>
+                      <div class="inlineBox lastDate-Section">
+                        <h3 class="subTitle">Last Date/Time Invite Sent</h3>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="saveBtn" style="margin-top: auto; margin-bottom: 13px">
+                <button>SAVE</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="divider"></div>
+
+      <!-- Third Section -->
+      <div class="Sample">
+        <div class="headWrapper">
+          <span class="accordion" id="accordionButton2">+</span>
+          <h3 class="setupTitle">DELIVERY</h3>
+        </div>
+        <div class="accordionContent" id="accordionContent2">
+          <div class="sendSms">
+            <div class="col">
+              <textarea
+                id="customMessage"
+                name="customMessage"
+                class="customMessage"
+                rows="5"
+                cols="30"
+                placeholder="Custom Message"
+              ></textarea>
+            </div>
+            <div class="col">
+              <h3 class="title">Send Message</h3>
+              <div class="option-wrapper-message">
+                <div class="selectOption">
+                  <select name="promotion" id="promotionSelect">
+                    <option value="promotion">Promotions</option>
+                    <option value="1">Free TopUp (10GB)</option>
+                   
+                    <option value="2">Free Tablet</option>
+               
+                    <option value="3">Free phones</option>
+                    
+                    <option value="4">Free Hotspot</option>
+                   
+                    <option value="5">Bonus Data</option>
+                    
+                    <option value="6">Dining Rewards</option>
+              
+                    <option value="7">Rewards Cash Gift Card</option>
+                    
+                    <option value="8">Upgrade Device at a discount</option>
+                  
+                    <option value="9">Data Rollover</option>
+                    
+                    <option value="10">Maxsip Refferal Program</option>
+                   
+                    <option value="11">Anniversary Rewards</option>
+                
+                   
+                  </select>
+                </div>
+                <div class="selectOption">
+                  <select name="troubleShoot" id="troubleShootSelect">
+                    <option value="troubleShoot">TroubleShoot</option>
+                    <option value="1">What is Maxsip Telecom?</option>
+                    
+                    <option value="2">What is the ACP Program?</option>
+                   
+                    <option value="3">How can I contact you?</option>
+                    
+                    <option value="4">What are the income Requirements?</option>
+                    
+                    <option value="5">How do I qualify?</option>
+                    
+                    <option value="6">Factory Reset Sky Tablet</option>
+                 
+                    <option value="7">Factory Reset Blu Tablet</option>
+                    
+                    <option value="8">Factory Reset FOXX Tablet</option>
+                    
+                    <option value="9">Factory Reset VORTEX Tablet</option>
+                   
+                    <option value="10">When does my data replenish?</option>
+                
+                    <option value="11">How long will the program last?</option>
+                    
+                    <option value="12">How much does the tablet cost?</option>
+                   
+                    <option value="13">How much data will I get every month?</option>
+                 
+                    <option value="14">I ran out of my 15GB. What now?</option>
+                    
+                    <option value="15">My Device is Broken. What now?</option>
+                   
+                    <option value="16">Does a replacement device cost anything?</option>
+                 
+                    <option value="17">How long until I receive my device?</option>
+                   
+                    <option value="18">Can my Household have more than one device?</option>
+             
+                    <option value="19">I am having difficulties activating my device.</option>
+                   
+                    <option value="20">Is this Home Internet?</option>
+                    
+                    <option value="21">How do I check my available data?</option>
+              
+                    <option value="22">Is there a Warranty?</option>
+             
+                    <option value="23">What network do you use?</option>
+                   
+                    <option value="24">How do I submit Documents online?</option>
+                  
+                    <option value="25">How fast is your internet connection?</option>
+                
+                    <option value="26">How large is the tablet?</option>
+                    
+                    <option value="27">I was overcharged for my tablet. Now what?</option>
+                  
+                    <option value="28">Why is there a $20 co-pay?</option>
+                   
+                  </select>
+
+                </div>
+              </div>
+
+            </div>
+            <div class="col">
+              <textarea
+              id="AutoResponse"
+              name="AutoResponse"
+              class="AutoResponse"
+              rows="6"
+              cols="40"
+              placeholder="Auto Response"
+              disabled
+              ></textarea>
+              </div>
+            <div class="col">
+              <h3 class="title">Send via</h3>
+              <div class="optionWrapperBox">
+                <div class="OptionWrapper">
+                  <input type="radio" name="communication" id="smsRadio2" />
+                  <div class="inlineBox sms">
+                    <h3 class="subTitle" htmlFor="sms">SMS:</h3>
+                  </div>
+                </div>
+                <div class="OptionWrapper">
+                  <input type="radio" name="communication" id="emailRadio2" />
+                  <div class="inlineBox sms">
+                    <h3 class="subTitle" htmlFor="email">Email:</h3>
+                  </div>
+                </div>
+                <div class="OptionWrapper">
+                  <input type="radio" name="communication" id="whatsappRadio2" />
+                  <div class="inlineBox sms">
+                    <h3 class="subTitle" htmlFor="Whatsapp">Whatsapp:</h3>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col submitCol">
+              <button id="sendButton" disabled>SEND</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const accordionButton = document.getElementById("accordionButton");
+        const accordionButton2 = document.getElementById("accordionButton2");
+        const accordionContent = document.getElementById("accordionContent");
+        const accordionContent2 = document.getElementById("accordionContent2");
+
+        const smsRadio = document.getElementById("smsRadio");
+        const emailRadio = document.getElementById("emailRadio");
+        const whatsappRadio = document.getElementById("whatsappRadio");
+
+        const smsRadio2 = document.getElementById("smsRadio2");
+        const emailRadio2 = document.getElementById("emailRadio2");
+        const whatsappRadio2 = document.getElementById("whatsappRadio2");
+
+        smsRadio.checked = true;
+
+        let isAccordionOpen = false;
+        let isAccordionOpen2 = false;
+
+        const hideAccordion = () => {
+          isAccordionOpen = !isAccordionOpen;
+          if (isAccordionOpen) {
+            accordionContent.style.display = "none";
+            accordionButton.textContent = "-";
+          } else {
+            accordionContent.style.display = "block ";
+            accordionButton.textContent = "+";
+          }
+        };
+
+        accordionButton.addEventListener("click", hideAccordion);
+
+        const hideAccordion2 = () => {
+          isAccordionOpen2 = !isAccordionOpen2;
+          if (isAccordionOpen2) {
+            accordionContent2.style.display = "none";
+            accordionButton2.textContent = "-";
+          } else {
+            accordionContent2.style.display = "block";
+            accordionButton2.textContent = "+";
+          }
+        };
+
+        accordionButton2.addEventListener("click", hideAccordion2);
+
+        const handleSendButton = (e) => {
+          sendButton.style.display = "block";
+        };
+
+        smsRadio2.addEventListener("change", handleSendButton);
+        emailRadio2.addEventListener("change", handleSendButton);
+        whatsappRadio2.addEventListener("change", handleSendButton);
+
+        const onCommunicationChange = (e) => {
+          console.log(e.target.checked);
+        };
+
+        smsRadio.addEventListener("change", (e) => onCommunicationChange(e));
+        emailRadio.addEventListener("change", (e) => onCommunicationChange(e));
+        whatsappRadio.addEventListener("change", (e) => onCommunicationChange(e));
+      });
+    </script>
+
+<!--Each customer will have a status for SMS Messaging
+1.  NI
+2.  Pending
+3.  Yes
+4.  Stop
+    I am just not sure how I would intergrate that quite yet but I will find out -->
+
+
+
+</body>
+</html>
